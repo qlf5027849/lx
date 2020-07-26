@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="./layui/css/layui.css"  media="all">
+		<script src="./layui/layui.js"></script>
+		<style>
+			h2{
+				color: #1E9FFF;
+			}
+		</style>
+	</head>
+	<body style="margin: 4%;">
+		<h1 align="center">阿苏的JavaScript学习成果</h1>
+		
+		<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+		<legend>
+			输出内容&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<button type="button" class="layui-btn layui-btn-normal" onclick="output_time()">点击测试</button>
+		</legend>
+		</fieldset>
+		<pre class="layui-code" lay-skin="notepad" lay-title="输出内容">
+		document.write("这里是输出的内容，可以为html代码");
+		//好像会清空所有内容，我也不清楚
+		</pre>  
+		 
+		
+		<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+		<legend>
+			指定id写入&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<button type="button" class="layui-btn layui-btn-normal" onclick="input_time()">点击测试</button>
+			<span id="innerHTML">这里的id为innerHTML</span>
+		</legend>
+		</fieldset>
+		<pre class="layui-code" lay-skin="notepad" lay-title="输出内容">
+			var id = document.getElementById("innerHTML");
+			id.innerHTML = Date();
+			//获取id为innerHTML的标签并写入内容为时间
+		</pre>  
+		
+		<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+		<legend>
+			点击li标签改变标签的class&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</legend>
+		</fieldset>
+		<pre class="layui-code" lay-skin="notepad" lay-title="输出内容">
+			//获取nt4下的所有li标签
+			var cns = document.getElementById("nt4").getElementsByTagName("li");
+			for(var i = 0;i< cns.length ;i++)
+			{
+			    cns[i].addEventListener('click',function () {
+			        for(var i = 0;i < cns.length ;i ++){
+			            cns[i].className = "li";
+			        }
+			        this.className = "lis";
+			    });
+			}
+		</pre>  
+		
+		
+		
+		
+			
+	<script>
+		layui.use('code', function(){ //加载code模块
+			layui.code({
+				about : false,
+				encode: true
+				
+		        });//引用code方法
+		});	
+	</script>	
+		
+	</body>
+</html>
+
+<!-- JavaScript代码区 -->
+<script>
+	function output_time(){
+		document.write(Date());
+	}
+	function input_time(){
+		document.getElementById("innerHTML").innerHTML = Date();
+	}
+	
+	// 获取所有class样式相同的元素
+	function xgClass(){
+		var x = document.getElementsByClassName("class");
+		for(var i = 0; i < x.length; i++){
+			x[i].className = "xgclass";
+		}
+	}
+</script>
+
